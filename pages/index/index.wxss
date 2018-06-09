@@ -1,0 +1,40 @@
+/**index.wxss**/
+.nav-left{
+  width: 25%;
+  border-right: 1px solid #D4D5D4;
+  overflow: hidden;
+}
+.nav-item{
+  padding: 20px 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: -1px;
+  border-top: 1px solid #D4D5D4;
+  text-align: center;
+}
+.nav-item-active{
+  color: #6BDF69;
+}
+.main{
+  width: 75%;
+}
+.nav-top{
+  height: auto;
+}
+.nav-title{
+  background: #6BDF69;
+  color: #fff;
+  padding: 15px 0;
+  text-align: center;
+  font-weight: bolder;
+}
+.nav-body{
+  display: flex;
+  flex-wrap: nowrap;
+}
+.nav-body-item{
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}

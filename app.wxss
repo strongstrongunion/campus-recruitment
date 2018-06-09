@@ -1,0 +1,9 @@
+/**app.wxss**/
+@import 'weui.wxss';
+.container {
+
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 14px;
+} 
