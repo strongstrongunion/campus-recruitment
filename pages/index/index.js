@@ -32,15 +32,14 @@ Page({
     ]
   },
   chooseSchool:function(e){
-    let idx = e.target.dataset;
-    console.log(idx);
+    let idx = Object.values(e.target.dataset) + '';
     if(idx){
-      // console.log(this.data.schools)
-      this.data.schools.map(item=>{
-        // console.log(item,item.active)
-        item.active=''
+      this.data.schools.map((item,i)=>{
+        this.setData({
+          [`schools[${i}].active`]:''
+        })
       });
-      // this.data.schools[idx].active ='nav-item-active';
+      this.setData({ [`schools[${idx}].active`]:'nav-item-active'});
     }
   }
 })
