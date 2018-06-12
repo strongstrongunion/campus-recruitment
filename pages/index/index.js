@@ -26,8 +26,8 @@ Page({
     talks:[
       {
         img:'./xianxia.jpg',
-        title:'标题',
-        desc:'地点 时间'
+        title:'腾讯秋招宣讲会',
+        desc:'中南大学 2018.7.13'
       }
     ]
   },
