@@ -1,0 +1,194 @@
+<style>
+@import "../lib/weui.wxss";
+.navbar{
+  width: 100%;
+  text-align:center;
+  font-size: 14px;
+}
+.nav-title{
+  background: #97EC99;
+  color: #fff;
+  padding: 15px 0;
+  font-weight: bolder;
+  font-size: 1.2em;
+}
+.nav-body{
+  display: flex;
+  font-size: .9em;
+}
+picker{
+  padding: 10px;
+  width: 25%;
+}
+.nav-body-item{
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+</style>
+<template>
+  <view class="container">
+    <view class="navbar">
+      <view class="nav-body">
+        <repeat for="{{navItems}}" key="idx" index="idx" item="item">
+          <picker mode="{{item.mode}}" value="{{item.value}}" start="{{item.start}}" end="{{item.end}}" bindchange="pickerChange" range="{{item.array}}" @tap="itemClick({{idx}})">
+            <view class="nav-body-item">{{item.title}}</view>
+          </picker>
+        </repeat>
+        
+      </view>
+    </view>
+    <scroll-view scroll-y lower-threshold bindscrolltolower="loadMore" enable-back-to-top>
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__hd">宣讲会</view>
+        <view class="weui-panel__bd">
+          <repeat for="{{talks}}" key="index" index="index" item="item">
+            <media :item="item"></media>
+          </repeat>
+        </view>
+      </view>   
+    </scroll-view>
+    
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Media from '../components/media-box'
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '校招资讯'
+    }
+    components = {
+      media: Media
+    }
+    data = {
+      id:0,
+      navItems:[
+        {
+          value:'',
+          title:'按时间',
+          mode:'date',
+          start:'2018-05-01',
+          end:'2018-09-01',
+          array:[]
+        },
+        {
+          value:0,
+          title:'按学校',
+          mode:'selector',
+          start:'',
+          end:'',
+          array:['全部','中南大学','湖南大学','湖南师范大学']
+
+        },
+        {
+          value:0,
+          title:'按岗位',
+          mode:'selector',
+          start:'',
+          end:'',
+          array:['全部','技术/研发类','产品/项目类','市场类','设计类','职能类','内容编辑类','客户服务类']
+        },
+        {
+          value:0,
+          title:'按公司地点',
+          mode:'selector',
+          start:'',
+          end:'',
+          array:['全国','华东地区（山东、江苏、安徽、浙江、福建、上海）','华南（广东、广西、海南）','华中（湖北、湖南、河南、江西）','华北（北京、天津、河北、山西、内蒙古）','西北（宁夏、新疆、青海、陕西、甘肃）','西南（四川、云南、贵州、西藏、重庆）','东北（辽宁、吉林、黑龙江）','港澳台']
+
+        }
+      ],
+      talks:[
+        {
+          name:'巴啦啦小魔仙公司',
+          img:'../res/img/anchun.jpg',
+          where:'地球',
+          when:'今天'
+        },
+        {
+          name:'巴啦啦小魔仙公司',
+          img:'../res/img/anchun.jpg',
+          where:'地球',
+          when:'今天'
+        },
+        {
+          name:'巴啦啦小魔仙公司',
+          img:'../res/img/anchun.jpg',
+          where:'地球',
+          when:'今天'
+        },
+        {
+          name:'巴啦啦小魔仙公司',
+          img:'../res/img/anchun.jpg',
+          where:'地球',
+          when:'今天'
+        },
+        {
+          name:'巴啦啦小魔仙公司',
+          img:'../res/img/anchun.jpg',
+          where:'地球',
+          when:'今天'
+        },
+        {
+          name:'巴啦啦小魔仙公司',
+          img:'../res/img/anchun.jpg',
+          where:'地球',
+          when:'今天'
+        },
+        {
+          name:'巴啦啦小魔仙公司',
+          img:'../res/img/anchun.jpg',
+          where:'地球',
+          when:'今天'
+        }
+      ]
+    }
+
+    // mixins = [testMixin]
+
+
+    computed = {
+    }
+    methods={
+      loadMore(){
+
+      },
+      pickerChange(e){
+        this.navItems[this.id].value=e.detail.value
+        this.navItems[this.id].title=(e.detail.value-0)+''==='NaN'?e.detail.value:this.navItems[this.id].array[e.detail.value];
+
+      },
+      itemClick(idx){
+        this.id=idx;
+      }
+    }
+    events = {
+      'index-emit': (...args) => {
+        let $event = args[args.length - 1]
+        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
+      }
+    }
+
+    onLoad() {
+      // let self = this
+      // this.$parent.getUserInfo(function (userInfo) {
+      //   if (userInfo) {
+      //     self.userInfo = userInfo
+      //   }
+      //   self.normalTitle = '标题已被修改'
+
+      //   self.setTimeoutTitle = '标题三秒后会被修改'
+      //   setTimeout(() => {
+      //     self.setTimeoutTitle = '到三秒了'
+      //     self.$apply()
+      //   }, 3000)
+
+      //   self.$apply()
+      // })
+    }
+  }
+</script>

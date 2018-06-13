@@ -1,0 +1,45 @@
+<style>
+</style>
+<template>
+  <view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">宣讲会</view>
+  <view class="weui-panel__bd">
+    <repeat for="{{talks}}" key="index" index="index" item="item">
+      <media :item="item"></media>
+    </repeat>
+  </view>
+</view>
+</template>
+<script>
+  import wepy from 'wepy'
+  import Media from './media-box.wpy'
+
+  export default class Media extends wepy.component {
+    components = {
+      media: Media
+    }
+    data = {
+      talks:[
+        {
+          name:'巴啦啦小魔仙公司',
+          img:'',
+          where:'地球',
+          when:'今天'
+        },
+        {
+          name:'巴啦啦小魔仙公司',
+          img:'',
+          where:'地球',
+          when:'今天'
+        }
+      ]
+    }
+
+    events = {
+      
+    }
+
+    methods = {
+      
+    }
+</script>
