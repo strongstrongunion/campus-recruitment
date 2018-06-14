@@ -1,17 +1,15 @@
 {
-<<<<<<< HEAD
-	"description": "项目配置文件。",
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true
-	},
-	"compileType": "miniprogram",
+  "description": "A WePY project",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "wx67f25274dd293a44",
-	"projectname": "cr",
+  "projectname": "campus",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -30,19 +28,6 @@
 			"current": -1,
 			"list": []
 		}
-	}
-}
-=======
-  "description": "A WePY project",
-  "setting": {
-    "urlCheck": true,
-    "es6": false,
-    "postcss": false,
-    "minified": false
-  },
-  "compileType": "miniprogram",
-  "appid": "wx67f25274dd293a44",
-  "projectname": "campus",
+	},
   "miniprogramRoot": "./dist"
 }
->>>>>>> (-v<)y
