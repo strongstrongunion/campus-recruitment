@@ -143,10 +143,11 @@ picker{
           name:'巴啦啦小魔仙公司',
           img:'../res/img/anchun.jpg',
           where:'地球',
-          when:'今天'
+          when:'名天'
         }
       ]
     }
+
 
     // mixins = [testMixin]
 
